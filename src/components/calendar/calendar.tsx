@@ -230,7 +230,6 @@ export const Calendar: React.FC<CalendarProps> = ({
       }
       // bottom
       const bottomValue = `${getWeekMondayDate(date)}`;
-      console.log("MOnday,", b)
 
       bottomValues.push(
         <text
