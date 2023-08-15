@@ -5,6 +5,7 @@ export enum ViewMode {
   Day = "Day",
   /** ISO-8601 week */
   Week = "Week",
+  MondayWeek = "MondayWeek",
   Month = "Month",
   QuarterYear = "QuarterYear",
   Year = "Year",
