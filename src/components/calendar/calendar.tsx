@@ -6,6 +6,7 @@ import {
   getDaysInMonth,
   getLocalDayOfWeek,
   getLocaleMonth,
+  getWeekMondayDate,
   getWeekNumberISO8601,
 } from "../../helpers/date-helper";
 import { DateSetup } from "../../types/date-setup";
@@ -214,6 +215,55 @@ export const Calendar: React.FC<CalendarProps> = ({
     return [topValues, bottomValues];
   };
 
+  const getCalendarValuesForMondayWeek = () => {
+    const topValues: ReactChild[] = [];
+    const bottomValues: ReactChild[] = [];
+    let weeksCount: number = 1;
+    const topDefaultHeight = headerHeight * 0.5;
+    const dates = dateSetup.dates;
+    for (let i = dates.length - 1; i >= 0; i--) {
+      const date = dates[i];
+      let topValue = "";
+      if (i === 0 || date.getMonth() !== dates[i - 1].getMonth()) {
+        // top
+        topValue = `${getLocaleMonth(date, locale)}, ${date.getFullYear()}`;
+      }
+      // bottom
+      const bottomValue = `W${getWeekMondayDate(date)}`;
+
+      bottomValues.push(
+        <text
+          key={date.getTime()}
+          y={headerHeight * 0.8}
+          x={columnWidth * (i + +rtl)}
+          className={styles.calendarBottomText}
+        >
+          {bottomValue}
+        </text>
+      );
+
+      if (topValue) {
+        // if last day is new month
+        if (i !== dates.length - 1) {
+          topValues.push(
+            <TopPartOfCalendar
+              key={topValue}
+              value={topValue}
+              x1Line={columnWidth * i + weeksCount * columnWidth}
+              y1Line={0}
+              y2Line={topDefaultHeight}
+              xText={columnWidth * i + columnWidth * weeksCount * 0.5}
+              yText={topDefaultHeight * 0.9}
+            />
+          );
+        }
+        weeksCount = 0;
+      }
+      weeksCount++;
+    }
+    return [topValues, bottomValues];
+  };
+
   const getCalendarValuesForDay = () => {
     const topValues: ReactChild[] = [];
     const bottomValues: ReactChild[] = [];
@@ -370,6 +420,9 @@ export const Calendar: React.FC<CalendarProps> = ({
     case ViewMode.Week:
       [topValues, bottomValues] = getCalendarValuesForWeek();
       break;
+    case ViewMode.MondayWeek:
+      [topValues, bottomValues] = getCalendarValuesForMondayWeek();
+      break
     case ViewMode.Day:
       [topValues, bottomValues] = getCalendarValuesForDay();
       break;

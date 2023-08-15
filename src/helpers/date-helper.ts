@@ -104,6 +104,7 @@ export const ganttDateRange = (
       newEndDate = startOfDate(newEndDate, "year");
       break;
     case ViewMode.Week:
+    case ViewMode.MondayWeek:
       newStartDate = startOfDate(newStartDate, "day");
       newStartDate = addToDate(
         getMonday(newStartDate),
@@ -160,6 +161,7 @@ export const seedDates = (
         currentDate = addToDate(currentDate, 1, "month");
         break;
       case ViewMode.Week:
+      case ViewMode.MondayWeek:
         currentDate = addToDate(currentDate, 7, "day");
         break;
       case ViewMode.Day:
