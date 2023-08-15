@@ -2,6 +2,7 @@ import React, { ReactChild } from "react";
 import { ViewMode } from "../../types/public-types";
 import { TopPartOfCalendar } from "./top-part-of-calendar";
 import {
+  getBriefMonth,
   getCachedDateTimeFormat,
   getDaysInMonth,
   getLocalDayOfWeek,
@@ -128,7 +129,7 @@ export const Calendar: React.FC<CalendarProps> = ({
     const topDefaultHeight = headerHeight * 0.5;
     for (let i = 0; i < dateSetup.dates.length; i++) {
       const date = dateSetup.dates[i];
-      const bottomValue = getLocaleMonth(date, locale);
+      const bottomValue = getBriefMonth(date);
       bottomValues.push(
         <text
           key={bottomValue + date.getFullYear()}
