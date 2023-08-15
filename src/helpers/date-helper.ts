@@ -209,6 +209,7 @@ const MONTHS = {
 
 }
 export const getBriefMonth = (date: Date) => {
+  console.log(date.getMonth, MONTHS[date.getMonth()]);
   return MONTHS[date.getMonth()];
 }
 
