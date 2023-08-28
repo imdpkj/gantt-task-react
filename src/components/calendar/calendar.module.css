@@ -7,6 +7,9 @@
   -ms-user-select: none;
   user-select: none;
   pointer-events: none;
+  font-weight: bold;
+  font-family: "Segoe UI";
+  font-size: 12px;
 }
 
 .calendarTopTick {
@@ -22,6 +25,9 @@
   -ms-user-select: none;
   user-select: none;
   pointer-events: none;
+  font-weight: bold;
+  font-family: "Segoe UI";
+  font-size: 12px;
 }
 
 .calendarHeader {
