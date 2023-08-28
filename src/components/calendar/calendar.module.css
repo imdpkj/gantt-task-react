@@ -7,9 +7,10 @@
   -ms-user-select: none;
   user-select: none;
   pointer-events: none;
-  font-weight: bold;
-  font-family: "Segoe UI";
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-size: 12px;
+  font-style: normal;
 }
 
 .calendarTopTick {
@@ -25,9 +26,10 @@
   -ms-user-select: none;
   user-select: none;
   pointer-events: none;
-  font-weight: bold;
-  font-family: "Segoe UI";
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-size: 12px;
+  font-style: normal;
 }
 
 .calendarHeader {
